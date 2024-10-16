@@ -29,12 +29,32 @@ export function aufgabe01(args) {
     // damit wir nicht so viele Klammern schreiben müssen.
     const currentElement = input[i]
 
-    // Hier wird das aktuelle Zeichen ans Ende der Resultat-Liste angehängt.
-    result.push(currentElement)
+    if (currentElement === "e") {
+      // do nothing
+    } else if (currentElement === "E") {
+      // auch E ignorieren
+    } else {
+      result.push(currentElement)
+    }
   }
 
-  // Hier geben wir das Resultat zurück, und machen einen Text daraus.
+  // Hier wird das aktuelle Zeichen ans Ende der Resultat-Liste angehängt.
   return result.join("")
 }
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
+
+export function aufgabe02(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = [i]
+    result.push(currentElement)
+    result.push(currentElement)
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
