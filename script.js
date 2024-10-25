@@ -23,22 +23,21 @@ linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
 
 export function aufgabe02(args) {
   const input = args
-  const result = [] //Das ist die Resultatliste
+  const result = []
+  //Das ist die Resultatliste
 
   // Lauft Zeich für Zeichen oder den ganzen Text.
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     // Hänge das aktuelle Zeichen doppelt an
-    if (currentElement === "abc") {
-      // do nothing
-    } else if (currentElement === "ABC") {
-      // auch E ignorieren
-    } else {
-      result.push(currentElement)
-    }
 
-    result.push(currentElement)
-    result.push(currentElement)
+    const upperCaseLettert = currentElement.toUpperCase()
+
+    // do nothing
+
+    // auch E ignorieren
+
+    result.push(upperCaseLettert)
   }
 
   return result.join("")
