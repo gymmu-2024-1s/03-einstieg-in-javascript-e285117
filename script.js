@@ -76,19 +76,34 @@ export function aufgabe04(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-
-    if (currentElement === "") {
-      // do nothing
+    // Hänge das aktuelle Zeichen doppelt an
+    if (currentElement === " ") {
       count = count + 1
-    } else if (currentElement === "") {
-      // auch E ignorieren
-      count = count + 1
-    } else {
-      result.push(currentElement)
     }
   }
 
-  return count
+  return count + 1
 }
 
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
+
+export function aufgabe05(args) {
+  const input = args
+  const result = []
+
+  let hasUpperCaseLetter = false
+
+  for (let i = 0; i < input.lenght; i++) {
+    const currentElement = input[i]
+
+    const toUpperCaseVersion = currentElement.toUpperCase()
+    if (currentElement === " ") {
+    } else if (toUpperCaseVersion === currentElement) {
+      hasUpperCaseLetter = true
+    }
+  }
+
+  return hasUpperCaseLetter
+}
+
+linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
