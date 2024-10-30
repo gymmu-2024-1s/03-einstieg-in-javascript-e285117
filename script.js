@@ -1,3 +1,4 @@
+import { hasOwn } from "jsdom/lib/jsdom/living/generated/utils"
 import { linkupExerciseHandler } from "./utils"
 
 export function aufgabe01(args) {
@@ -89,21 +90,49 @@ linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe05(args) {
   const input = args
-  const result = []
 
   let hasUpperCaseLetter = false
+  // Wir starten immer mit das
 
-  for (let i = 0; i < input.lenght; i++) {
+  for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    const UpperCaseVersion = currentElement.toUpperCase()
 
-    const toUpperCaseVersion = currentElement.toUpperCase()
-    if (currentElement === " ") {
-    } else if (toUpperCaseVersion === currentElement) {
+    // Ich Möchte eine neue variable, wir haben die Variable ein namen gegeben.
+    if (currentElement === ".") {
+    } // Necesitamos comprobar
+    else if (currentElement === " ") {
+    } else if (currentElement === UpperCaseVersion) {
       hasUpperCaseLetter = true
     }
   }
 
   return hasUpperCaseLetter
+  // Variable die müssen wir defienieren (Resultat)
 }
 
 linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
+
+export function aufgabe06(args) {
+  const input = args
+  let hasUpperCaseLetter = false
+  // Wir starten immer mit das
+
+  for (let i = 0; i < args.length; i++) {
+    const currentElement = args[i]
+    const UpperCaseVersion = currentElement.toUpperCase()
+
+    // Ich Möchte eine neue variable, wir haben die Variable ein namen gegeben.
+    if (currentElement === ".") {
+    } // Necesitamos comprobar
+    else if (currentElement === " ") {
+    } else if (currentElement === UpperCaseVersion) {
+      hasUpperCaseLetter = true
+    }
+  }
+
+  return hasUpperCaseLetter
+  // Variable die müssen wir defienieren (Resultat)
+}
+
+linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
