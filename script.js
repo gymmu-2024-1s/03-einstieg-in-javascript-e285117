@@ -115,24 +115,22 @@ linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 
 export function aufgabe06(args) {
   const input = args
-  let hasUpperCaseLetter = false
-  // Wir starten immer mit das
+  let hasSpecialCharacter = false
 
-  for (let i = 0; i < args.length; i++) {
-    const currentElement = args[i]
-    const UpperCaseVersion = currentElement.toUpperCase()
+  // Wir definieren einen Ausdruck, der nach besonderen Zeichen sucht
+  const specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/
 
-    // Ich Möchte eine neue variable, wir haben die Variable ein namen gegeben.
-    if (currentElement === ".") {
-    } // Necesitamos comprobar
-    else if (currentElement === " ") {
-    } else if (currentElement === UpperCaseVersion) {
-      hasUpperCaseLetter = true
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    // Wir prüfen, ob das Zeichen ein Sonderzeichen ist
+    if (specialCharacterRegex.test(currentElement)) {
+      hasSpecialCharacter = true
+      break // Wir steigen aus der Schleife aus, sobald wir ein besonderes Zeichen finden.
     }
   }
 
-  return hasUpperCaseLetter
-  // Variable die müssen wir defienieren (Resultat)
+  return hasSpecialCharacter
 }
 
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
