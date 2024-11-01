@@ -134,3 +134,15 @@ export function aufgabe06(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
+
+export function aufgabe07(args) {
+  const input = args
+
+  // Verifica si la palabra "und" está en la cadena
+  const hasConector = input.includes("und")
+
+  return hasConector
+}
+
+// Este código queda igual
+linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
