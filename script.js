@@ -146,3 +146,22 @@ export function aufgabe07(args) {
 
 // Este código queda igual
 linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
+
+export function aufgabe08(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement.toLowerCase() === "e") {
+      result.push("3") // Agrega "3" en lugar de "e" o "E"
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
