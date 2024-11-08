@@ -165,3 +165,35 @@ export function aufgabe08(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
+
+export function aufgabe09(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    //Zähle ob die Eigabe genau 6 Zeichen erhält
+    if (input.length === 6) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
+
+linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
+
+export function aufgabe11(args) {
+  const input = args
+  // Erstelle eine Variable um dem ASCII-Code zu spreichern
+  let asciiCode = null
+
+  asciiCode = input.charCodeAt(0)
+
+  // Gib den ASCII-Code zurück
+
+  return asciiCode
+}
+
+linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
