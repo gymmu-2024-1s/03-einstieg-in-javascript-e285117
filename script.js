@@ -144,7 +144,6 @@ export function aufgabe07(args) {
   return hasConector
 }
 
-// Este código queda igual
 linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
 
 export function aufgabe08(args) {
@@ -217,3 +216,61 @@ export function aufgabe12(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
+
+export function aufgabe13(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    //Suche des letztes "e" im Text
+    const currentElement = input[i]
+
+    if (currentElement === "e") {
+      result.push(currentElement)
+    }
+  }
+
+  return result.length - 1
+}
+
+linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
+
+export function aufgabe15(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    //Lesen Sie die Eingabe bis zum ersten Leerzeichen ein
+    const currentElement = input[i] // Zeichen
+
+    if (currentElement === " ") {
+      break
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
+
+export function aufgabe16(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    //Lesen Sie die Eingabe bis zum Zeichen '$' als ersten Teil einer Liste ein, und geben Sie den Rest als den zweiten Teil.
+    const currentElement = input[i] // Zeichen
+
+    if (currentElement === "$") {
+      break
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
