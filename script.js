@@ -226,11 +226,11 @@ export function aufgabe13(args) {
     const currentElement = input[i]
 
     if (currentElement === "e") {
-      result.push(currentElement)
+      result.push(i)
     }
   }
 
-  return result.length - 1
+  return result[result.length - 1]
 }
 
 linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
@@ -261,7 +261,7 @@ export function aufgabe16(args) {
 
   for (let i = 0; i < input.length; i++) {
     //Lesen Sie die Eingabe bis zum Zeichen '$' als ersten Teil einer Liste ein, und geben Sie den Rest als den zweiten Teil.
-    const currentElement = input[i] // Zeichen
+    const currentElement = input[i]
 
     if (currentElement === "$") {
       break
@@ -274,3 +274,22 @@ export function aufgabe16(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
+
+export function aufgabe17(args) {
+  const input = args
+  const result = []
+  //Lesen Sie die Eingabe als Liste ein, Einträge in der Liste werden von einem ',' getrennt.
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === ",") {
+      break
+    } else {
+      result.push(currentElement) // Zeichen
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
