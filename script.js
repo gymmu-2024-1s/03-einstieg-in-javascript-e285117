@@ -276,20 +276,30 @@ export function aufgabe16(args) {
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
-  const input = args
-  const result = []
-  //Lesen Sie die Eingabe als Liste ein, Einträge in der Liste werden von einem ',' getrennt.
+  const input = "Einfach$nur Text"
+  const result1 = []
+  const result2 = []
+
+  let dollarFound = false
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    console.log(currentElement)
 
-    if (currentElement === ",") {
-      break
+    if (dollarFound === "false") {
+      //Wir haben das hier oben festgelegt
+      result1.push(currentElement)
+      //Wir haben es zu der ersten resultatgeordnet
     } else {
-      result.push(currentElement) // Zeichen
+      result2.push(currentElement)
     }
-  }
 
-  return result.join("")
+    if (currentElement === "$") {
+      dollarFound = true
+    }
+    console.log(result1)
+    console.log(result2)
+  }
 }
 
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
