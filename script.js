@@ -319,3 +319,22 @@ export function aufgabe19(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
+
+export function aufgabe20(args) {
+  const input = args
+  const result = [] //arreglo que tendrá cada letra de la oración modificada
+  //for se ocupa para recorrer cada cáracter de la oración
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (input[i] === ",") {
+      // Comprobamos si el siguiente carácter no es un espacio o si no existe
+      if (input[i + 1] !== " ") {
+        return false // Si no hay espacio después de la coma, devolvemos false
+      }
+    }
+  }
+  return true // Si pasamos todas las verificaciones, devolvemos true
+}
+
+linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
