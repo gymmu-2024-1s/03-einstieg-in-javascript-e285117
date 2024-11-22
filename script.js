@@ -18,6 +18,7 @@ export function aufgabe01(args) {
   }
 
   return result.join("")
+  //alle resultate nebeeinander
 }
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
@@ -34,10 +35,6 @@ export function aufgabe02(args) {
 
     const upperCaseLettert = currentElement.toUpperCase()
 
-    // do nothing
-
-    // auch E ignorieren
-
     result.push(upperCaseLettert)
   }
 
@@ -50,22 +47,26 @@ export function aufgabe03(args) {
   const input = args
   const result = []
   let count = 0
+  //es beginnt immer mit 0
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    //loop
 
     if (currentElement === "e") {
-      // do nothing
+      // kleine "e"
       count = count + 1
     } else if (currentElement === "E") {
-      // auch E ignorieren
+      // "grosse E"
       count = count + 1
     } else {
       result.push(currentElement)
+      //das ist das Ergebnis
     }
   }
 
   return count
+  //das ergebniss in nummern
 }
 
 linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
@@ -74,16 +75,17 @@ export function aufgabe04(args) {
   const input = args
   const result = []
   let count = 0
+  //Es beginnt immer mit 0
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    // Hänge das aktuelle Zeichen doppelt an
+
     if (currentElement === " ") {
       count = count + 1
     }
   }
 
-  return count + 1
+  return count + 1 //weil ein wort mehr wie Leerzeichen
 }
 
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
@@ -100,7 +102,7 @@ export function aufgabe05(args) {
 
     // Ich Möchte eine neue variable, wir haben die Variable ein namen gegeben.
     if (currentElement === ".") {
-    } // Necesitamos comprobar
+    } // Wir müssen komprobieren, ob das Zeichen ein Punkt ist
     else if (currentElement === " ") {
     } else if (currentElement === UpperCaseVersion) {
       hasUpperCaseLetter = true
@@ -338,3 +340,41 @@ export function aufgabe20(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
+
+export function aufgabe21(args) {
+  const input = args
+  const result = []
+  //Kehren Sie die Eingabe um.
+
+  for (let i = input.length - 1; i >= 0; i--) {
+    result.push(input[i])
+  }
+
+  return result.join("")
+} //Funktion die die Eingabe umkehrt
+
+linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
+
+export function aufgabe22(args) {
+  //Es sollen alle Zeichen aus der Eingabe mit `_` ersetzt werden, bis zum ersten `k`.
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement === "k") {
+      break
+    } else {
+      result.push(currentElement)
+
+      if (currentElement === " ") {
+        result.push("_")
+      }
+    }
+  }
+
+  return result.join("_")
+}
+
+linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
