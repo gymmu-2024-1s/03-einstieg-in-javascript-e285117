@@ -378,3 +378,12 @@ export function aufgabe22(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+export function aufgabe24(args) {
+  const input = args
+  //Das erste und das letzte Zeichen der Eingabe sollen vertauscht werden.
+
+  return input[input.length - 1] + input.slice(1, input.length - 1) + input[0]
+}
+
+linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
