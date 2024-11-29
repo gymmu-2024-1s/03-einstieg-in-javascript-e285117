@@ -14,11 +14,12 @@ export function aufgabe01(args) {
       // auch E ignorieren
     } else {
       result.push(currentElement)
+      //alle Wörter in die resultate kiste reinfügen
     }
   }
 
   return result.join("")
-  //alle resultate nebeeinander
+  //alle resultate zusammen
 }
 
 linkupExerciseHandler("[data-click=aufgabe01]", aufgabe01)
@@ -34,18 +35,20 @@ export function aufgabe02(args) {
     // Hänge das aktuelle Zeichen doppelt an
 
     const upperCaseLettert = currentElement.toUpperCase()
+    //Alle Wörter sollen zu UpperCaseLetter wandeln
 
     result.push(upperCaseLettert)
+    //Alle die Wörter in die resultate kiste reinfugen
   }
 
   return result.join("")
+  //Alle UpperCaseLetter zusammen, ohne kommas.
 }
 
 linkupExerciseHandler("[data-click=aufgabe02]", aufgabe02)
 
 export function aufgabe03(args) {
   const input = args
-  const result = []
   let count = 0
   //es beginnt immer mit 0
 
@@ -54,14 +57,11 @@ export function aufgabe03(args) {
     //loop
 
     if (currentElement === "e") {
-      // kleine "e"
       count = count + 1
+      //Es zählt +1 wenn eine "e" vorkommt
     } else if (currentElement === "E") {
-      // "grosse E"
       count = count + 1
-    } else {
-      result.push(currentElement)
-      //das ist das Ergebnis
+      //Das gleiche aber mir "E"
     }
   }
 
@@ -73,7 +73,6 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 
 export function aufgabe04(args) {
   const input = args
-  const result = []
   let count = 0
   //Es beginnt immer mit 0
 
@@ -82,6 +81,7 @@ export function aufgabe04(args) {
 
     if (currentElement === " ") {
       count = count + 1
+      //Es zellt +1 wenn ein Leerzeichen vorkommt
     }
   }
 
@@ -92,20 +92,21 @@ linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
 
 export function aufgabe05(args) {
   const input = args
-
   let hasUpperCaseLetter = false
   // Wir starten immer mit das
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     const UpperCaseVersion = currentElement.toUpperCase()
+    //Wir wandeln alle Wörter in Grossbuchstaben
 
-    // Ich Möchte eine neue variable, wir haben die Variable ein namen gegeben.
     if (currentElement === ".") {
     } // Wir müssen komprobieren, ob das Zeichen ein Punkt ist
     else if (currentElement === " ") {
-    } else if (currentElement === UpperCaseVersion) {
+    } // Wir prüfen, ob das Zeichen ein Leerzeichen ist
+    else if (currentElement === UpperCaseVersion) {
       hasUpperCaseLetter = true
+      //Wenn die UpperCaseVersion gleich dem Zeichen ist, dann ist es eine Grossbuchstabe
     }
   }
 
@@ -140,7 +141,7 @@ linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
 export function aufgabe07(args) {
   const input = args
 
-  // Verifica si la palabra "und" está en la cadena
+  // Wir prüfen, ob das Wort "und" in der Eingabe vorkommt
   const hasConector = input.includes("und")
 
   return hasConector
@@ -151,36 +152,43 @@ linkupExerciseHandler("[data-click=aufgabe07]", aufgabe07)
 export function aufgabe08(args) {
   const input = args
   const result = []
+  //Resultat kiste
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
     if (currentElement.toLowerCase() === "e") {
-      result.push("3") // Agrega "3" en lugar de "e" o "E"
+      //alle Buchstaben sollten zu kleine Wörter umwandeln
+      result.push("3") // Es addiert sich 3 zu "e" in die Resultat kiste
     } else {
       result.push(currentElement)
+      //Was übrig bleibt addiert sich auch in die Resultat kiste
     }
   }
 
   return result.join("")
+  //alle resultate zusammen
 }
 
 linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 
 export function aufgabe09(args) {
   const input = args
-  const result = []
+  let hassixCharacter = false
+  //const result = []
 
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
+    //const currentElement = input[i]
 
     //Zähle ob die Eigabe genau 6 Zeichen erhält
     if (input.length === 6) {
-      return true
-    } else {
-      return false
+      hassixCharacter = true
     }
+    break //else {
+    //return false
   }
+
+  return hassixCharacter
 }
 
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
@@ -201,54 +209,91 @@ linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
 
 export function aufgabe12(args) {
   const input = args
-  const result = []
   let firstEPosition = -1
+  //Die "0" postition ist -1 weil 0 ist schon die erste
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    // Busca la posicion de la primera "e" en el texto
+    //Man such die erstes "e" im Text
     if (currentElement === "e") {
       firstEPosition = i
+      //Man musst die exakt Position speichern
       break
+      //loop beenden
     }
   }
 
-  return firstEPosition
+  return firstEPosition + 1
+  //+1 weil 0 ist schon die erste
 }
 
 linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
 
 export function aufgabe13(args) {
   const input = args
-  const result = []
+  let result = 0
 
   for (let i = 0; i < input.length; i++) {
     //Suche des letztes "e" im Text
     const currentElement = input[i]
 
     if (currentElement === "e") {
-      result.push(i)
+      //Man musst die exakt Position speichern
+      result = i
     }
   }
 
-  return result[result.length - 1]
+  return result
+  //gibt die Position von das lezte "e" zuruck
 }
 
 linkupExerciseHandler("[data-click=aufgabe13]", aufgabe13)
 
+export function aufgabe14(args) {
+  const input = args
+  let thirdEPosition = -1
+  //die zählen postition anfängt mit -1
+  let count = 0
+  //es zählt wie viele "e" in eine zeile gibt
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    //Man such die erstes "e" im Text
+    if (currentElement === "e") {
+      count = count + 1
+      //wenn eine "e" findet, dann wird die count um 1 erhöht
+    } else if (currentElement === "E") {
+      count = count + 1
+    } else if (count === 3) {
+      //wenn die count schon 3 ist, sollte sich diese Position speichern und der loop beenden.
+      thirdEPosition = i
+      break
+    }
+  }
+
+  return thirdEPosition
+  //sagt die letzte position der "e" nach der beendungs des loops
+}
+
+linkupExerciseHandler("[data-click=aufgabe14]", aufgabe14)
+
 export function aufgabe15(args) {
   const input = args
   const result = []
+  //Hier haben wir die Resultate kiste
 
   for (let i = 0; i < input.length; i++) {
     //Lesen Sie die Eingabe bis zum ersten Leerzeichen ein
     const currentElement = input[i] // Zeichen
 
     if (currentElement === " ") {
+      //bis zum ersten leerzeichen und dann das loop beenden
       break
     } else {
       result.push(currentElement)
+      //alle resultate zusammen
     }
   }
 
@@ -262,7 +307,6 @@ export function aufgabe16(args) {
   const result = []
 
   for (let i = 0; i < input.length; i++) {
-    //Lesen Sie die Eingabe bis zum Zeichen '$' als ersten Teil einer Liste ein, und geben Sie den Rest als den zweiten Teil.
     const currentElement = input[i]
 
     if (currentElement === "$") {
@@ -278,7 +322,7 @@ export function aufgabe16(args) {
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
-  const input = "Einfach$nur Text"
+  const input = args
   const result1 = []
   const result2 = []
 
@@ -387,3 +431,51 @@ export function aufgabe24(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
+
+export function aufgabe27(args) {
+  const input = args
+  const result = []
+  //Testen sie, ob eine Eingabe eine Zahl ist.
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement >= "0" && currentElement <= "9") {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
+
+export function aufgabek(args) {
+  const input = args
+  const result = []
+  let Thereisk = false
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (Thereisk === false) {
+      if (currentElement === "k") {
+        Thereisk = true
+        result.push(currentElement)
+      } else {
+        result.push(currentElement)
+      }
+    } else {
+      if (currentElement === "k") {
+        result.push(currentElement)
+        Thereisk = false
+      } else {
+        result.push("*")
+      }
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabek]", aufgabek)
