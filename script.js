@@ -426,6 +426,7 @@ export function aufgabe23(args) {
   //Das erste Zeichen der Eingabe soll zusätzlich ganz vorne und ganz hinten an der Ausgabe angehängt werden.
 
   return input[0] + input + input[0]
+  //Input[0] ist das erste Zeichen der Eingabe, dann addieren wir die ganze eingebe und dann wieder das erste Zeichen der Eingabe
 }
 
 linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
@@ -435,6 +436,7 @@ export function aufgabe24(args) {
   //Das erste und das letzte Zeichen der Eingabe sollen vertauscht werden.
 
   return input[input.length - 1] + input.slice(1, input.length - 1) + input[0]
+  //Wenn wir [input.length - 1] nehmen, dann ist das letzte Zeichen der Eingabe.
 }
 
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
