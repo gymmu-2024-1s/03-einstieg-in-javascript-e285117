@@ -423,15 +423,10 @@ linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
 
 export function aufgabe23(args) {
   const input = args
-  const result = []
-  //Kehren Sie die Eingabe um.
+  //Das erste Zeichen der Eingabe soll zusätzlich ganz vorne und ganz hinten an der Ausgabe angehängt werden.
 
-  for (let i = input.length - 1; i >= 0; i--) {
-    result.push(input[i])
-  }
-
-  return result.join("")
-} //Funktion die die Eingabe umkehrt
+  return input[0] + input + input[0]
+}
 
 linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
 
