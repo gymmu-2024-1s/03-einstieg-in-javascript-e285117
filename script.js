@@ -264,8 +264,6 @@ export function aufgabe14(args) {
     if (currentElement === "e") {
       count = count + 1
       //wenn eine "e" findet, dann wird die count um 1 erhöht
-    } else if (currentElement === "E") {
-      count = count + 1
     } else if (count === 3) {
       //wenn die count schon 3 ist, sollte sich diese Position speichern und der loop beenden.
       thirdEPosition = i
@@ -293,7 +291,7 @@ export function aufgabe15(args) {
       break
     } else {
       result.push(currentElement)
-      //alle resultate zusammen
+      //alle buchstaben vor der leerzeichen in die Kiste reinfügen
     }
   }
 
@@ -304,48 +302,44 @@ linkupExerciseHandler("[data-click=aufgabe15]", aufgabe15)
 
 export function aufgabe16(args) {
   const input = args
-  const result = []
+  const result1 = []
+  const result2 = []
+  let dollarFound = false
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    if (currentElement === "$") {
-      break
+    if (dollarFound === false) {
+      if (currentElement === "$") {
+        dollarFound = true
+      }
+      result1.push(currentElement)
     } else {
-      result.push(currentElement)
+      result2.push(currentElement)
     }
   }
 
-  return result.join("")
+  return [result1.join(""), result2.join("")]
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
   const input = args
-  const result1 = []
-  const result2 = []
-
-  let dollarFound = false
+  const result = []
+  //Lesen Sie die Eingabe als Liste ein, Einträge in der Liste werden von einem ',' getrennt.
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    console.log(currentElement)
 
-    if (dollarFound === "false") {
-      //Wir haben das hier oben festgelegt
-      result1.push(currentElement)
-      //Wir haben es zu der ersten resultatgeordnet
+    if (currentElement === ",") {
+      break //loop beenden
     } else {
-      result2.push(currentElement)
+      result.push(currentElement)
     }
-
-    if (currentElement === "$") {
-      dollarFound = true
-    }
-    console.log(result1)
-    console.log(result2)
   }
+
+  return result
 }
 
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
@@ -400,28 +394,46 @@ export function aufgabe21(args) {
 linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
 
 export function aufgabe22(args) {
-  //Es sollen alle Zeichen aus der Eingabe mit `_` ersetzt werden, bis zum ersten `k`.
   const input = args
   const result = []
+  let Thereisk = false
+  //Hier definieren wir die Variable
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    if (currentElement === "k") {
-      break
+    if (Thereisk === false) {
+      if (currentElement === "k") {
+        Thereisk = true
+        //Wenn es ein k ist, dann ist es true
+      }
+      result.push("_")
+      //dann alles wird zu einen "_" eingesetz
     } else {
       result.push(currentElement)
-
-      if (currentElement === " ") {
-        result.push("_")
-      }
+      //alles was übrig bleibt in die resultate kiste einfügen
     }
   }
 
-  return result.join("_")
+  return result.join("")
+  //alles zusammen
 }
 
 linkupExerciseHandler("[data-click=aufgabe22]", aufgabe22)
+
+export function aufgabe23(args) {
+  const input = args
+  const result = []
+  //Kehren Sie die Eingabe um.
+
+  for (let i = input.length - 1; i >= 0; i--) {
+    result.push(input[i])
+  }
+
+  return result.join("")
+} //Funktion die die Eingabe umkehrt
+
+linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
 
 export function aufgabe24(args) {
   const input = args
@@ -454,6 +466,7 @@ export function aufgabek(args) {
   const input = args
   const result = []
   let Thereisk = false
+  //Wir müssen diese Variable definieren, damit wir wissen, ob wir gerade ein "k" haben.
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
