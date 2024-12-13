@@ -119,7 +119,7 @@ linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 export function aufgabe06(args) {
   const input = args
   let hasSpecialCharacter = false
-  //Schreibe eine Funktion, die testet, ob in einem Text mindestens ein Sonderzeichen vorkommt. Mit ASCII-Code.
+  //Wir definieren die Variable
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -127,27 +127,32 @@ export function aufgabe06(args) {
     if (
       currentElement.charCodeAt(0) >= 33 &&
       currentElement.charCodeAt(0) <= 47
+      //Wir sagen alles zwischen 33 und 47 ist ein Spezialzeichen in die Liste von ASCII-Code
     ) {
       hasSpecialCharacter = true
     } else if (
       currentElement.charCodeAt(0) >= 58 &&
       currentElement.charCodeAt(0) <= 64
+      //Hier auch
     ) {
       hasSpecialCharacter = true
     } else if (
       currentElement.charCodeAt(0) >= 91 &&
       currentElement.charCodeAt(0) <= 96
+      //Auch
     ) {
       hasSpecialCharacter = true
     } else if (
       currentElement.charCodeAt(0) >= 123 &&
       currentElement.charCodeAt(0) <= 126
+      //Auch
     ) {
       hasSpecialCharacter = true
     }
   }
 
   return hasSpecialCharacter
+  //Wenn das zeichen nicht zwischen diese Nummern steht dann ist es kein Spezialzeichen
 }
 
 linkupExerciseHandler("[data-click=aufgabe06]", aufgabe06)
@@ -189,20 +194,20 @@ linkupExerciseHandler("[data-click=aufgabe08]", aufgabe08)
 export function aufgabe09(args) {
   const input = args
   let hassixCharacter = false
-  //const result = []
+  //Wir definieren die Variable
 
   for (let i = 0; i < input.length; i++) {
-    //const currentElement = input[i]
-
-    //Zähle ob die Eigabe genau 6 Zeichen erhält
     if (input.length === 6) {
+      //Input.length soll sagen wie viele Buchstaben im Wort sind.
       hassixCharacter = true
+      //Wenn es 6 sind dann ist es true.
     }
-    break //else {
-    //return false
+    break
+    //Loop beenden weil wir die antwort schon haben
   }
 
   return hassixCharacter
+  //Resultat
 }
 
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
@@ -211,12 +216,13 @@ export function aufgabe11(args) {
   const input = args
   // Erstelle eine Variable um dem ASCII-Code zu spreichern
   let asciiCode = null
+  //Variable definieren
 
   asciiCode = input.charCodeAt(0)
-
-  // Gib den ASCII-Code zurück
+  //Soll sagen welche Nummer von der Zeichen
 
   return asciiCode
+  //Der Nummer als Resultat geben
 }
 
 linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
@@ -361,15 +367,17 @@ linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 export function aufgabe19(args) {
   const input = args
   const result = []
+  //Resultat Kiste ohne Leerzeichen
 
   for (let i = 0; i < input.length; i++) {
-    //Jedes Zeichen in der Eingabe soll verdoppelt werden.
     const currentElement = input[i]
 
     result.push(currentElement, currentElement)
+    //Hier sagen wir das alle zeichen der Current Element zwei mal in die resultat Kiste reinfugen sollen.
   }
 
   return result.join("")
+  //Alle Buchstaben nebeneinander reinfugen
 }
 
 linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
