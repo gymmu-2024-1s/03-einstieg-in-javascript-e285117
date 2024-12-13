@@ -119,17 +119,31 @@ linkupExerciseHandler("[data-click=aufgabe05]", aufgabe05)
 export function aufgabe06(args) {
   const input = args
   let hasSpecialCharacter = false
-
-  // Wir definieren einen Ausdruck, der nach besonderen Zeichen sucht
-  const specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/
+  //Schreibe eine Funktion, die testet, ob in einem Text mindestens ein Sonderzeichen vorkommt. Mit ASCII-Code.
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    // Wir prüfen, ob das Zeichen ein Sonderzeichen ist
-    if (specialCharacterRegex.test(currentElement)) {
+    if (
+      currentElement.charCodeAt(0) >= 33 &&
+      currentElement.charCodeAt(0) <= 47
+    ) {
       hasSpecialCharacter = true
-      break // Wir steigen aus der Schleife aus, sobald wir ein besonderes Zeichen finden.
+    } else if (
+      currentElement.charCodeAt(0) >= 58 &&
+      currentElement.charCodeAt(0) <= 64
+    ) {
+      hasSpecialCharacter = true
+    } else if (
+      currentElement.charCodeAt(0) >= 91 &&
+      currentElement.charCodeAt(0) <= 96
+    ) {
+      hasSpecialCharacter = true
+    } else if (
+      currentElement.charCodeAt(0) >= 123 &&
+      currentElement.charCodeAt(0) <= 126
+    ) {
+      hasSpecialCharacter = true
     }
   }
 
