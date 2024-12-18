@@ -392,6 +392,21 @@ export function aufgabe17(args) {
 
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 
+export function aufgabe18(args) {
+  const input = args
+  const nameAndAge = aufgabe17(input)
+  const result = []
+  result.push("Sie heissen")
+  result.push(nameAndAge[0])
+  result.push("und sind")
+  result.push(nameAndAge[1])
+  result.push(" Jahre alt.")
+
+  return result.join(" ")
+}
+
+linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
+
 export function aufgabe19(args) {
   const input = args
   const result = []
