@@ -73,19 +73,45 @@ linkupExerciseHandler("[data-click=aufgabe03]", aufgabe03)
 
 export function aufgabe04(args) {
   const input = args
-  let count = 0
+  const result = []
   //Es beginnt immer mit 0
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
 
-    if (currentElement === " ") {
-      count = count + 1
-      //Es zellt +1 wenn ein Leerzeichen vorkommt
+    if (ascii >= 65 && ascii <= 90) {
+      //Grussbuchstaben
+      result.push(currentElement)
+    } else if (ascii >= 97 && ascii <= 122) {
+      //Kleine Buchstaben
+      result.push(currentElement)
+    } else if (ascii === 32) {
+      //Leerzeichen
+      result.push(currentElement)
     }
   }
 
-  return count + 1 //weil ein wort mehr wie Leerzeichen
+  const result2 = []
+  for (let i = 0; i < result.length; i++) {
+    const currentElement = result[i]
+    const nextElement = result[i + 1]
+
+    if (currentElement === " " && nextElement === " ") {
+    } else {
+      result2.push(currentElement)
+    }
+  }
+
+  let count = 0
+  for (let i = 0; i < result2.length; i++) {
+    const currentElement = result2[i]
+    if (currentElement === " ") {
+      count++
+    }
+  }
+
+  return count + 1
 }
 
 linkupExerciseHandler("[data-click=aufgabe04]", aufgabe04)
