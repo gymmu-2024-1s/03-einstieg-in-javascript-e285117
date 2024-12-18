@@ -1,4 +1,3 @@
-import { hasOwn } from "jsdom/lib/jsdom/living/generated/utils"
 import { linkupExerciseHandler } from "./utils"
 
 export function aufgabe01(args) {
@@ -372,20 +371,23 @@ linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
   const input = args
-  const result = []
-  //Lesen Sie die Eingabe als Liste ein, Einträge in der Liste werden von einem ',' getrennt.
+  const totalList = []
+  const currentList = []
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    if (currentElement === ",") {
-      break //loop beenden
+    if (currentElement === " ") {
+      totalList.push(currentList.join(""))
+      currentList.length = 0
     } else {
-      result.push(currentElement)
+      currentList.push(currentElement)
     }
   }
 
-  return result
+  totalList.push(currentList.join(""))
+
+  return totalList
 }
 
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
