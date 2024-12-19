@@ -527,6 +527,24 @@ export function aufgabe24(args) {
 }
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
+export function aufgabe26(args) {
+  const input = args
+  const result = []
+  //Vergleichen Sie die ersten beiden Zeichen der Eingabe und vertauschen Sie diese so dass Sie alphanumerisch sortiert sind.
+
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+
+    if (currentElement >= "0" && currentElement <= "9") {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
+
 export function aufgabe27(args) {
   const input = args
   const result = []
