@@ -201,8 +201,8 @@ export function aufgabe08(args) {
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
-    if (currentElement.toLowerCase() === "e") {
-      //alle Buchstaben sollten zu kleine Wörter umwandeln
+    if (currentElement === "e") {
+      //wenn es e ist, dann:
       result.push("3") // Es addiert sich 3 zu "e" in die Resultat kiste
     } else {
       result.push(currentElement)
@@ -237,17 +237,29 @@ export function aufgabe09(args) {
 
 linkupExerciseHandler("[data-click=aufgabe09]", aufgabe09)
 
+export function aufgabe10(args) {
+  const input = args
+  //Teste ob eine Eingabe ein korrekter RGB Hexcode ist.
+
+  if (input[0] === "#" && input.length === 7) {
+    return true
+  } else {
+    return false
+  }
+}
+
+linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
+
 export function aufgabe11(args) {
   const input = args
+  const result = []
+
   // Erstelle eine Variable um dem ASCII-Code zu spreichern
-  let asciiCode = null
-  //Variable definieren
-
-  asciiCode = input.charCodeAt(0)
-  //Soll sagen welche Nummer von der Zeichen
-
-  return asciiCode
-  //Der Nummer als Resultat geben
+  if (input.length === 1) {
+    return input.charCodeAt(0)
+  } else {
+    return null
+  }
 }
 
 linkupExerciseHandler("[data-click=aufgabe11]", aufgabe11)
@@ -269,7 +281,7 @@ export function aufgabe12(args) {
     }
   }
 
-  return firstEPosition + 1
+  return firstEPosition
   //+1 weil 0 ist schon die erste
 }
 
@@ -277,7 +289,7 @@ linkupExerciseHandler("[data-click=aufgabe12]", aufgabe12)
 
 export function aufgabe13(args) {
   const input = args
-  let result = 0
+  let result = -1
 
   for (let i = 0; i < input.length; i++) {
     //Suche des letztes "e" im Text
@@ -307,9 +319,10 @@ export function aufgabe14(args) {
 
     //Man such die erstes "e" im Text
     if (currentElement === "e") {
-      count = count + 1
+      count++
       //wenn eine "e" findet, dann wird die count um 1 erhöht
-    } else if (count === 3) {
+    }
+    if (count === 3) {
       //wenn die count schon 3 ist, sollte sich diese Position speichern und der loop beenden.
       thirdEPosition = i
       break
@@ -432,7 +445,7 @@ export function aufgabe20(args) {
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
-    if (input[i] === ",") {
+    if (input[i] === ".") {
       // Comprobamos si el siguiente carácter no es un espacio o si no existe
       if (input[i + 1] !== " ") {
         return false // Si no hay espacio después de la coma, devolvemos false
@@ -498,12 +511,20 @@ linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
 
 export function aufgabe24(args) {
   const input = args
+  const result = []
   //Das erste und das letzte Zeichen der Eingabe sollen vertauscht werden.
-
-  return input[input.length - 1] + input.slice(1, input.length - 1) + input[0]
-  //Wenn wir [input.length - 1] nehmen, dann ist das letzte Zeichen der Eingabe.
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (i === 0) {
+      result.push(input[input.length - 1])
+    } else if (i === input.length - 1) {
+      result.push(input[0])
+    } else {
+      result.push(currentElement)
+    }
+  }
+  return result.join("")
 }
-
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
 export function aufgabe27(args) {
