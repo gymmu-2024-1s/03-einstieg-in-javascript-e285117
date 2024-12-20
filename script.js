@@ -243,17 +243,23 @@ export function aufgabe10(args) {
   //Teste ob eine Eingabe ein korrekter RGB Hexcode ist.
 
   if (input[0] === "#" && input.length === 7) {
+    //Wenn die erste Buchstabe "#" ist und die Eingabe 7 Buchstaben lang ist dann es ist true
   } else {
+    //Wenn nicht, dann falsch
     return false
   }
 
   for (let i = 1; i < input.length; i++) {
     const currentElement = input[i]
     const ascii = currentElement.charCodeAt(0)
+    //wir definieren die Variable so das es einfachher zu lesen ist
 
     if ((ascii >= 48 && ascii <= 57) || (ascii >= 65 && ascii <= 70)) {
+      //Wenn die Variable zwischen 48 und 57 ist dann ist es eine Zahl
+      //Wenn die Variable zwischen 65 und 70 ist dann ist es eine Grossbuchstabe von A bis F
     } else {
       return false
+      //Alles was nicht da ist, ist falsch
     }
   }
 
@@ -401,23 +407,29 @@ linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
 
 export function aufgabe17(args) {
   const input = args
-  const totalList = []
-  const currentList = []
+  const totalResult = []
+  //Wir definieren die resultate kiste
+  const currentWord = []
+  //Wir definieren die Variable die die Wörter speichert bevor man die wörter/buchstaben in die resultate kiste einfügt
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
 
     if (currentElement === " ") {
-      totalList.push(currentList.join(""))
-      currentList.length = 0
+      //Wenn es ein Leerzeichen ist, dann wird die currentWord in die resultate kiste eingefügen
+      totalResult.push(currentWord.join(""))
+      //.join weil wir möchten das ganze Wort ohne kommas reinfugen
+      currentWord.length = 0
+      //Dann soll das nocheinmal starten
     } else {
-      currentList.push(currentElement)
+      currentWord.push(currentElement)
+      //Alles was nicht ein Leerzeichen ist, wird in die currentWord eingefügen
     }
   }
 
-  totalList.push(currentList.join(""))
+  totalResult.push(currentWord.join(""))
 
-  return totalList
+  return totalResult
 }
 
 linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
@@ -465,19 +477,18 @@ linkupExerciseHandler("[data-click=aufgabe19]", aufgabe19)
 
 export function aufgabe20(args) {
   const input = args
-  const result = [] //arreglo que tendrá cada letra de la oración modificada
-  //for se ocupa para recorrer cada cáracter de la oración
 
   for (let i = 0; i < input.length; i++) {
-    const currentElement = input[i]
     if (input[i] === ".") {
-      // Comprobamos si el siguiente carácter no es un espacio o si no existe
-      if (input[i + 1] !== " ") {
-        return false // Si no hay espacio después de la coma, devolvemos false
+      //Wir sagen das wenn in input ein punkt ist dann soll die folgende aufgabe vollständigen:
+      if (input[i + 1] == " ") {
+        return true
+        //Wenn input[i] (also das Punkt) in die nächste stelle (also input[i+1]) ein Leerzeichen ist, dann ist es true
       }
     }
   }
-  return true // Si pasamos todas las verificaciones, devolvemos true
+  return false
+  //Sonst ist es falsch
 }
 
 linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
@@ -485,14 +496,14 @@ linkupExerciseHandler("[data-click=aufgabe20]", aufgabe20)
 export function aufgabe21(args) {
   const input = args
   const result = []
-  //Kehren Sie die Eingabe um.
 
   for (let i = input.length - 1; i >= 0; i--) {
     result.push(input[i])
+    //Das loop fängt von hinten und alle stellen werden von hinten in die resultat kiste eingefügt, so das der erste element dann der erste in die liste wird.
   }
 
   return result.join("")
-} //Funktion die die Eingabe umkehrt
+} //Alles zusammen ohne kommas
 
 linkupExerciseHandler("[data-click=aufgabe21]", aufgabe21)
 
@@ -537,53 +548,76 @@ linkupExerciseHandler("[data-click=aufgabe23]", aufgabe23)
 export function aufgabe24(args) {
   const input = args
   const result = []
-  //Das erste und das letzte Zeichen der Eingabe sollen vertauscht werden.
+
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
     if (i === 0) {
+      //Wenn i 0 ist (also die erste position von eine eingabe), dann soll man das in die Resultate Kiste einfügen.
       result.push(input[input.length - 1])
+      //In die resultate liste einfügen aber das letzte element von der Input (Eingabe)
     } else if (i === input.length - 1) {
+      //wenn i die letzte position ist (also die letzte position von eine eingabe), dann soll man das in die Resultate Kiste einfügen.
       result.push(input[0])
+      //In die resultate liste einfügen aber das erste element von der Input (Eingabe)
     } else {
       result.push(currentElement)
+      //Was übrig bleibt soll man auch in die Resultat liste einfügen
     }
   }
   return result.join("")
+  //alles zusammen
 }
 linkupExerciseHandler("[data-click=aufgabe24]", aufgabe24)
 
 export function aufgabe26(args) {
   const input = args
   const result = []
-  //Vergleichen Sie die ersten beiden Zeichen der Eingabe und vertauschen Sie diese so dass Sie alphanumerisch sortiert sind.
+  const currentElement1 = input[0]
+  const currentElement2 = input[1]
+  const ascii1 = currentElement1.charCodeAt(0)
+  const ascii2 = currentElement2.charCodeAt(0)
+  //wir definieren die variablen so das es besser lesbar ist
 
-  for (let i = 0; i < input.length; i++) {
+  if (ascii1 >= ascii2) {
+    //Wenn ascii1 (also das erste element) großer oder gleich ascii2 ist (das zweite element)
+    result.push(currentElement2)
+    result.push(currentElement1)
+    //Dann es soll man das in diese reihenfolge in die resultat kiste einfügen
+  } else {
+    //sonst, soll man es in diese reihenfolge
+    result.push(currentElement1)
+    result.push(currentElement2)
+  }
+
+  for (let i = 2; i < input.length; i++) {
+    //der loop anfangt mit 2 weil wir haben schon die ersten zwei elemente eingefügt
     const currentElement = input[i]
-
-    if (currentElement >= "0" && currentElement <= "9") {
-      result.push(currentElement)
-    }
+    result.push(currentElement)
+    //alles was nach der zweiten stelle ist, wird in die resultate kiste eingefügen
   }
 
   return result.join("")
+  //alles zusammen
 }
 
 linkupExerciseHandler("[data-click=aufgabe26]", aufgabe26)
 
 export function aufgabe27(args) {
   const input = args
-  const result = []
-  //Testen sie, ob eine Eingabe eine Zahl ist.
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+    //wir defienieren die Variable
 
-    if (currentElement >= "0" && currentElement <= "9") {
-      result.push(currentElement)
+    if (ascii < 48 || ascii > 57) {
+      //Wenn die Variable ascii kleiner als 48 ist oder großer als 57 ist, dann ist keine Zahl, also return falsch
+      return false
     }
   }
 
-  return result.join("")
+  return true
+  //sonst es ist true
 }
 
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
@@ -597,23 +631,32 @@ export function aufgabek(args) {
     const currentElement = input[i]
 
     if (Thereisk === false) {
+      //Wenn die Variable Thereisk falsch ist
       if (currentElement === "k") {
+        //Dann soll man das nach "true" wechseln
         Thereisk = true
+        //"k" wird zu die Resultate Liste
         result.push(currentElement)
       } else {
+        //alles was übrig bleibt auch in die reusltate liste
         result.push(currentElement)
       }
     } else {
+      //Weil der Variable "true" ist dann muss diese Aufgabe gemacht werden
       if (currentElement === "k") {
+        //Wenn es "k" dann in die resultat liste nocheinamal
         result.push(currentElement)
         Thereisk = false
+        //und die Variable Thereisk wird wieder false
       } else {
+        //Was übrig bleibt soll man auch in die resultate liste einfügen aber wie ein "*"
         result.push("*")
       }
     }
   }
 
   return result.join("")
+  //alle resultate zusammen
 }
 
 linkupExerciseHandler("[data-click=aufgabek]", aufgabek)
