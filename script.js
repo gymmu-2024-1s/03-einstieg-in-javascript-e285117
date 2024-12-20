@@ -700,8 +700,10 @@ export function aufgabeNummern(args) {
       result.push("4")
     } else if (currentElement === "u" || currentElement === "U") {
       result.push("5")
+      //Wenn die Eingabe eine Buchstabe ist (zum beispiel "e" oder "E"), dann soll man in eine spezifische nummern umwandeln
     } else {
       result.push(currentElement)
+      //was übrig bleibt soll man auch in die resultate liste einfügen wir normales zeichen
     }
   }
 
@@ -709,3 +711,21 @@ export function aufgabeNummern(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabeNummern]", aufgabeNummern)
+
+export function aufgabeBuchstaben(args) {
+  const input = args
+  const result = []
+
+  for (let i = 0; i < input.length; i++) {
+    let currentElement = input[i].charCodeAt(0) + 75
+    //Wir haben der ascii Code defieniert so dass der zeichen in der eingabe immer 75 grösser ist
+
+    result.push(String.fromCharCode(currentElement))
+    //Wir haben der nummer ascii in buchstaben (oder auch sonderzeichen) nocheinmal so das die eingabe verschlüsselt ist :)
+  }
+
+  return result.join("")
+  //Alle resultate zusammen (ohne kommas)
+}
+
+linkupExerciseHandler("[data-click=aufgabeBuchstaben]", aufgabeBuchstaben)
