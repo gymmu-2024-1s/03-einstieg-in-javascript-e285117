@@ -9,7 +9,7 @@
     <script type="module" src="script.js"></script>
   </head>
 
-  <body>
+  <bo>
     <div id="input-panel">
       <h1>Aufgaben für Bedingungen und Schleifen</h1>
 
@@ -22,14 +22,108 @@
 
       <div class="button-container">
         <!-- TODO: Hier neue Buttons erstellen. -->
+        <button type="button" data-click="aufgabeBuchstaben">Aufgabe Buchstaben</button>
+        <button type="button" data-click="aufgabeSortierverfahren">Aufgabe Sortierverfahren</button>
+        <button type="button" data-click="aufgabeNummern">Aufgabe Nummern</button>
+        <button type="button" data-click="aufgabek">Aufgabe k</button>
+        <button type="button" data-click="aufgabe27">Aufgabe 27</button>
+        <button type="button" data-click="aufgabe26">Aufgabe 26</button>
+        <button type="button" data-click="aufgabe25">Aufgabe 25</button>
+        <button type="button" data-click="aufgabe24">Aufgabe 24</button>
+        <button type="button" data-click="aufgabe23">Aufgabe 23</button>
+        <button type="button" data-click="aufgabe22">Aufgabe 22</button>
+        <button type="button" data-click="aufgabe21">Aufgabe 21</button>
+        <button type="button" data-click="aufgabe20">Aufgabe 20</button>
+        <button type="button" data-click="aufgabe19">Aufgabe 19</button>
+        <button type="button" data-click="aufgabe18">Aufgabe 18</button>
+        <button type="button" data-click="aufgabe17">Aufgabe 17</button>
+        <button type="button" data-click="aufgabe16">Aufgabe 16</button>
+        <button type="button" data-click="aufgabe15">Aufgabe 15</button>
+        <button type="button" data-click="aufgabe14">Aufgabe 14</button>
+        <button type="button" data-click="aufgabe13">Aufgabe 13</button>
+        <button type="button" data-click="aufgabe12">Aufgabe 12</button>
+        <button type="button" data-click="aufgabe11">Aufgabe 11</button>
+        <button type="button" data-click="aufgabe10">Aufgabe 10</button>
+        <button type="button" data-click="aufgabe09">Aufgabe 9</button>
+        <button type="button" data-click="aufgabe08">Aufgabe 8</button>
+        <button type="button" data-click="aufgabe07">Aufgabe 7</button>
+        <button type="button" data-click="aufgabe06">Aufgabe 6</button>
+        <button type="button" data-click="aufgabe05">Aufgabe 5</button>
+        <button type="button" data-click="aufgabe04">Aufgabe 4</button>
+        <button type="button" data-click="aufgabe03">Aufgabe 3</button>
+        <button type="button" data-click="aufgabe02">Aufgabe 2</button>
         <button type="button" data-click="aufgabe01">Aufgabe 1</button>
       </div>
 
-      <section>
-        <h2>Sortierverfahren</h2>
-        <!-- TODO: Schreiben Sie hier zu Sortierverfahren-->
-      </section>
+
+    <section>
+      <h2>- Sortierverfahren</h2>
+      <!-- TODO: Schreiben Sie hier zu Sortierverfahren-->
+      <h3>- Bubble Sort:</h3>
+
+      <p>
+        Es handelt sich um einen Algorithmus, der mit der Reihenfolge vom
+        niedrigsten zum höchsten Wert beginnt.
+      </p>
+
+      <p>
+        So funktioniert es: Es durchläuft die Sequenz einen Wert nach dem
+        anderen und vergleicht den Wert jedes Mal mit dem nächsten Wert. Wenn
+        der Wert höher als der nächste Wert ist, sollte er vertauscht werden (so
+        dass der höchste Wert zuletzt ist).
+    </p>
+
+      <p>Beispiel: [6,8,3,2,1]</p>
+      <p>wird zu: [6,3,8,2,1]</p>
+      <p>und dann zu: [3,6,8,2,1]</p>
+      <p>und so weiter bis alle nummern zugeordnet sind: [1,2,3,6,8]...</p>
+
+      <h3>- Counting Sort:</h3>
+
+      <p>
+Durchläuft eine Folge von Werten und zählt dabei, wie oft sie vorkommt
+jeden Wert dieser Sequenz und sortieren Sie ihn dann vom niedrigsten zum höchsten Wert.</p>
+
+<p>Beispiel: [5,3,5,4,7,4] </p>
+
+<p>Nummer 3 = 1 mal </p>
+<p>Nummer 4 = 2 mal </p>
+<p>Nummer 5 = 2 mal </p>
+<p>Nummer 7 = 1 mal </p>
+
+<p>Ergebnis: [3,4,4,5,5,7] </p>
+
+<p>So funktioniert es: Es wird ein neuer Abschnitt erstellt, um mit dem Zählen der Werte zu beginnen.
+Für jeden Wert gibt es eine Reihenfolge. Wenn dann alle Werte eine Zählung haben, müssen sie es sein
+Ordnen Sie die Werte neu, aber jetzt in der richtigen Reihenfolge. </p>
+
+<p>Bedingungen dafür, dass es funktioniert: Dieser Algorithmus funktioniert nur mit ganzen Zahlen
+denn auf diese Weise passt sich jeder Wert einem Index an (keine negativen Zahlen, weil
+ausserhalb des Zählbereichs liegen). </p>
+
+<h3>- Selection Sort:</h3>
+
+<p> Es handelt sich um einen Sortieralgorithmus, der nach dem niedrigsten Wert eines Abschnitts sucht und verschiebt es nach vorne (nachdem der gesamte Abschnitt durchlaufen wurde). Bald bis alle Werte vom niedrigsten zum höchsten geordnet sind. </p>
+
+<p>[5, 9, „1“, 2, 3]</p>
+
+<p>Wählen Sie die Zahl „1“, da es sich um den kleinsten Wert handelt.
+Und verschiebt es dann an den Anfang des gesamten Abschnitts (da es der kleinste ist). </p>
+
+<p>[1, 5, 9, „2“, 3]</p>
+
+<p>Wählen Sie die Zahl „2“, da dies der kleinste Wert nach der Anordnung ist
+Zahl „1“. Und es wird nach „1“ verschoben, da es der kleinste Wert nach „1“ ist. </p>
+
+<p>[1, 2, 5, 9, 3]</p>
+
+<p>Und so weiter, bis alle Werte bestellt sind</p>
+
+<p>[1, 2, 3, 5, 9]</p>
+
+    </section>
     </div>
+
 
     <div id="output">
       <div id="output-header">
