@@ -684,3 +684,28 @@ linkupExerciseHandler(
   "[data-click=aufgabeSortierverfahren]",
   aufgabeSortierverfahren,
 )
+
+export function aufgabeNummern(args) {
+  const input = args
+  const result = []
+  for (let i = 0; i < input.length; i++) {
+    const currentElement = input[i]
+    if (currentElement === "a" || currentElement === "A") {
+      result.push("1")
+    } else if (currentElement === "e" || currentElement === "E") {
+      result.push("2")
+    } else if (currentElement === "i" || currentElement === "I") {
+      result.push("3")
+    } else if (currentElement === "o" || currentElement === "O") {
+      result.push("4")
+    } else if (currentElement === "u" || currentElement === "U") {
+      result.push("5")
+    } else {
+      result.push(currentElement)
+    }
+  }
+
+  return result.join("")
+}
+
+linkupExerciseHandler("[data-click=aufgabeNummern]", aufgabeNummern)
