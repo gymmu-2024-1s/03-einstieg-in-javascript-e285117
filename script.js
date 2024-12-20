@@ -623,6 +623,7 @@ export function aufgabe27(args) {
 linkupExerciseHandler("[data-click=aufgabe27]", aufgabe27)
 
 export function aufgabek(args) {
+  //Schreiben Sie eine Funktion die einen Text bis zum ersten k abschriebt, dann nur * schriebt bis zum zweiten k, und dann den Text wieder abschreibt.
   const input = args
   const result = []
   let Thereisk = false
@@ -660,3 +661,26 @@ export function aufgabek(args) {
 }
 
 linkupExerciseHandler("[data-click=aufgabek]", aufgabek)
+
+export function aufgabeSortierverfahren(args) {
+  let my_array = [30, 64, 15, 10, 200, 89, 90, 9]
+  let n = my_array.length
+
+  for (let i = 0; i < n; i++) {
+    let min_index = i
+    for (let j = i + 1; j < n; j++) {
+      if (my_array[j] < my_array[min_index]) {
+        min_index = j
+      }
+    }
+    let temp = my_array[i]
+    my_array[i] = my_array[min_index]
+    my_array[min_index] = temp
+  }
+  return my_array
+}
+
+linkupExerciseHandler(
+  "[data-click=aufgabeSortierverfahren]",
+  aufgabeSortierverfahren,
+)
