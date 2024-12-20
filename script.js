@@ -80,7 +80,7 @@ export function aufgabe04(args) {
     const ascii = currentElement.charCodeAt(0)
 
     if (ascii >= 65 && ascii <= 90) {
-      //Grussbuchstaben
+      //Grossbuchstaben
       result.push(currentElement)
     } else if (ascii >= 97 && ascii <= 122) {
       //Kleine Buchstaben
@@ -187,6 +187,7 @@ export function aufgabe07(args) {
 
   // Wir prüfen, ob das Wort "und" in der Eingabe vorkommt
   const hasConector = input.includes("und")
+  //Wir sagen das die Variable soll "und" drin haben und wenn das Wort "und" in der Eingabe vorkommt, dann ist es true
 
   return hasConector
 }
@@ -242,22 +243,34 @@ export function aufgabe10(args) {
   //Teste ob eine Eingabe ein korrekter RGB Hexcode ist.
 
   if (input[0] === "#" && input.length === 7) {
-    return true
   } else {
     return false
   }
+
+  for (let i = 1; i < input.length; i++) {
+    const currentElement = input[i]
+    const ascii = currentElement.charCodeAt(0)
+
+    if ((ascii >= 48 && ascii <= 57) || (ascii >= 65 && ascii <= 70)) {
+    } else {
+      return false
+    }
+  }
+
+  return true
 }
 
 linkupExerciseHandler("[data-click=aufgabe10]", aufgabe10)
 
 export function aufgabe11(args) {
   const input = args
-  const result = []
 
   // Erstelle eine Variable um dem ASCII-Code zu spreichern
   if (input.length === 1) {
+    //Wenn die Eingabe ein zeichen land ist dann soll soll man die ASCII-Code ausgeben.
     return input.charCodeAt(0)
   } else {
+    //wenn es keine Eingabe gib oder mehr als eine soll "null" standen
     return null
   }
 }
@@ -363,6 +376,7 @@ export function aufgabe16(args) {
   const result1 = []
   const result2 = []
   let dollarFound = false
+  //Wir definieren die Variable
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
@@ -372,12 +386,15 @@ export function aufgabe16(args) {
         dollarFound = true
       }
       result1.push(currentElement)
+      //Wenn man der $ findet, dann ist es true und die Variable wird true und die Buchstabe vor der $ werden in die resultate kiste eingefügen
     } else {
       result2.push(currentElement)
+      //Alles was übrig bleibt in die zweite resultate kiste
     }
   }
 
   return [result1.join(""), result2.join("")]
+  //Als letztes soll man reinfügen in der Resultat mit einen komma zwischen beiden resultate kisten
 }
 
 linkupExerciseHandler("[data-click=aufgabe16]", aufgabe16)
@@ -408,14 +425,22 @@ linkupExerciseHandler("[data-click=aufgabe17]", aufgabe17)
 export function aufgabe18(args) {
   const input = args
   const nameAndAge = aufgabe17(input)
+  //Wir nehmen die ersten zweit Wörter (nummer oder auch Buchstaben) der input eingabe
   const result = []
+  //Wir definieren die resultate kiste
   result.push("Sie heissen")
+  //Wir sagen das "Sie heissen" in die resultate kiste reinfugen
   result.push(nameAndAge[0])
+  //Wir sagen das "name" (das erstes Wort der input eingabe) in die resultate kiste reinfugen
   result.push("und sind")
+  //Wir sagen das "und sind" in die resultate kiste reinfugen
   result.push(nameAndAge[1])
+  //Wir sagen das "alter" (das zweites Wort der input eingabe) in die resultate kiste reinfugen
   result.push(" Jahre alt.")
+  //Und schliesslich soll man "Jahre alt." in die resultate kiste reinfugen
 
   return result.join(" ")
+  //Alle resultate zusammen
 }
 
 linkupExerciseHandler("[data-click=aufgabe18]", aufgabe18)
@@ -567,7 +592,6 @@ export function aufgabek(args) {
   const input = args
   const result = []
   let Thereisk = false
-  //Wir müssen diese Variable definieren, damit wir wissen, ob wir gerade ein "k" haben.
 
   for (let i = 0; i < input.length; i++) {
     const currentElement = input[i]
